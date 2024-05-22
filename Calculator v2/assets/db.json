@@ -1,0 +1,18 @@
+{
+  "calcList": [
+    {
+      "input1": 5,
+      "input2": 4,
+      "operator": "+",
+      "result": 9,
+      "id": "0000011111"
+    },
+    {
+      "input1": 123,
+      "operator": "*",
+      "input2": 123,
+      "result": 15129,
+      "id": "RtZg0A3"
+    }
+  ]
+}
