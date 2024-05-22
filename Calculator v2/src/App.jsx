@@ -16,7 +16,7 @@ function App() {
   const doCalc = (operator) => {
     const { input1, input2 } = input;
     const result = operations[operator](input1, input2);
-    setCalcList([...calcList, { input1, input2, result, operator, id: Date.now().toString() }])
+    setCalcList([...calcList, { input1, input2, result, operator, id: Date.now().toString() }]) 
   };
 
   return (
