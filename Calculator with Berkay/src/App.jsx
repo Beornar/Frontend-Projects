@@ -1,35 +1,63 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [input, setInput] = useState({ input1: 0, input2: 0 });
+  const [calcList, setCalcList] = useState([]);
+
+
+  const operations = {
+    "+": (a, b) => a + b,
+    "-": (a, b) => a - b,
+    "*": (a, b) => a * b,
+    "/": (a, b) => a / b,
+  };
+
+  const doCalc = (operator) => {
+    const { input1, input2 } = input;
+    const result = operations[operator](input1, input2);
+    setCalcList([...calcList, { input1, input2, result, operator, id: Date.now().toString() }])
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <header>
+        <h1>Basic CALCULATOR</h1>
+      </header>
+      <main>
+        <div className="calc-form">
+          <input
+            type="number"
+            value={input.input1}
+            onChange={(event) => setInput({ ...input, input1: event.target.valueAsNumber })}
+          />
+          <input
+            type="number"
+            value={input.input2}
+            onChange={(event) => setInput({ ...input, input2: event.target.valueAsNumber })}
+          />
+          <div className="buttons">
+            {Object.keys(operations).map((operator) => (
+              <button key={operator} onClick={() => doCalc(operator)}>
+                {operator}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="calc-list">
+          {calcList.map((calc) => (
+            <div className="calc-card" key={calc.id}>
+              <span>{calc.input1}</span>
+              <span>{calc.operator}</span>
+              <span>{calc.input2}</span>
+              <span>=</span>
+              <span>{calc.result}</span>
+            </div>
+          ))}
+        </div>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
