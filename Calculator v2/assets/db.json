@@ -13,6 +13,13 @@
       "input2": 123,
       "result": 15129,
       "id": "RtZg0A3"
+    },
+    {
+      "input1": 123,
+      "operator": "/",
+      "input2": 4124,
+      "result": "0.030",
+      "id": "IrH_fip"
     }
   ]
 }

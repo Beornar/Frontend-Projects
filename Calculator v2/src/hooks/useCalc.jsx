@@ -25,7 +25,6 @@ function useCalc() {
         try {
             const response = await axios("http://localhost:5050/calcList");
             setCalcList(response.data);
-            console.log(response);
 
         } catch (error) {
             console.log(error);
