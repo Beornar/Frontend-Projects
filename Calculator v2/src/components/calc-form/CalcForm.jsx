@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext, useState } from "react";
 import { CalcContext } from "../../contexts/calc/CalcContext";
 
 const CalcForm = () => {
