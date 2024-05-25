@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import CalcCard from "../calc-card/CalcCard";
 import { CalcContext } from "../../contexts/calc/CalcContext";
+import CalcCard from "../calc-card/CalcCard";
 
 const CalcList = () => {
 

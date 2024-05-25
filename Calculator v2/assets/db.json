@@ -15,18 +15,24 @@
       "id": "RtZg0A3"
     },
     {
-      "input1": 123,
-      "operator": "/",
-      "input2": 4124,
-      "result": "0.030",
-      "id": "IrH_fip"
+      "newCalc": 1412,
+      "id": "Iek3feb"
     },
     {
-      "input1": 231321,
-      "operator": "/",
-      "input2": 321321,
-      "result": "0.720",
-      "id": "5uVhKcU"
+      "newCalc": 123,
+      "id": "aKbVRcx"
+    },
+    {
+      "newCalc": 11,
+      "id": "5LjJ_x0"
+    },
+    {
+      "newCalc": 123,
+      "id": "xOjMosk"
+    },
+    {
+      "newCalc": {},
+      "id": "KlKV9vf"
     }
   ]
 }

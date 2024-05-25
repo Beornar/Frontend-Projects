@@ -1,6 +1,7 @@
 import React from "react";
 
 const CalcCard = ({ calc }) => {
+    
     return (
         <div className="calc-card">
             <span>{calc.input1}</span>

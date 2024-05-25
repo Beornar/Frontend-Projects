@@ -17,3 +17,5 @@ export const CalcProvider = ({ children }) => {
     </CalcContext.Provider>
   )
 }
+
+export default CalcContext;

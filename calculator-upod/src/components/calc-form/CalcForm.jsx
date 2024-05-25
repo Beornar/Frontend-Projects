@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import { CalcContext } from "../../contexts/calc/CalcContext";
+import { CalcContext } from "../contexts/CalcContext";
 
 const CalcForm = () => {
-    const { addCalc } = useContext(CalcContext);
+    const{addCalc} = useContext(CalcContext);
     const [input, setInput] = useState({ input1: "", input2: "" });
 
     const operations = {
@@ -24,7 +24,7 @@ const CalcForm = () => {
                 type="number"
                 value={input.input1}
                 onChange={(event) =>
-                    setInput({ ...input, input1: event.target.valueAsNumber })
+                    setInput({ ...input, input1: parseInt(event.target.value) })
                 }
             />
             <input
@@ -35,12 +35,14 @@ const CalcForm = () => {
                 }
             />
             <div className="buttons">
+                <hr />
                 {/* Object.keys metodu bir nesnenin keylerini bir dizi olarak döndürür. .values - .entries */}
                 {Object.keys(operations).map((operator) => (
                     <button onClick={() => doCalc(operator)} key={operator}>
                         {operator}
                     </button>
                 ))}
+                <hr />
             </div>
         </div>
     );

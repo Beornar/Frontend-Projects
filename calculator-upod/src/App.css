@@ -1,0 +1,27 @@
+* {
+  text-align: center;
+}
+.calc-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+input {
+  margin: 10px;
+}
+
+.calc-list {
+  display: flex;
+}
+
+.calc-card {
+  border: 1px solid brown;
+  margin: 8px;
+  padding: 5px;
+  width: 200px;
+}
+.buttons {
+  display: flex;
+  gap: 8px;
+}
