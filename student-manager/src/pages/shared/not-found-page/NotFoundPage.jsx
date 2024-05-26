@@ -22,7 +22,8 @@ const NotFoundPage = () => {
 
         //clearInterval kullanmadığımda geri sayım hatalı olacağı için 1 saniyede bir saymak yerine saniye atlayabilir.
         return () => clearInterval(countdown);
-    }, [])
+
+    }, [timer])
 
     return (
         <div>

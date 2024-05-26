@@ -1,73 +1,79 @@
 {
-    "students": [
-      {
-        "studentName": "Barkin Onay Sayin",
-        "course": "Onay Teknikleri",
-        "instructor": "Hicran Ertugral",
-        "id": "001"
-      },
-      {
-        "studentName": "Ali Riza Taskiran",
-        "course": "JavaScript",
-        "instructor": "Buse Ugras",
-        "id": "002"
-      },
-      {
-        "studentName": "Berkay Turna",
-        "course": "React",
-        "instructor": "Orun Durmaz",
-        "id": "003"
-      },
-      {
-        "studentName": "Cenk Kaynak",
-        "course": "Html Css",
-        "instructor": "Orkun Durmaz",
-        "id": "004"
-      },
-      {
-        "studentName": "Maiores sit modi et",
-        "course": "Cumque est ducimus ",
-        "instructor": "Blanditiis minima et",
-        "id": "WFHqIjY"
-      }
-    ],
-    "users": [
-      {
-        "email": "onayking@barkin.com",
-        "password": "approvedCoder34",
-        "id": "00abc1"
-      },
-      {
-        "email": "yakrebingozleri@felix.com",
-        "password": "scorpiocodes35",
-        "id": "00abc2"
-      },
-      {
-        "email": "cenkflex@kaynak.com",
-        "password": "12345css4Ever",
-        "id": "00abc3"
-      }
-    ],
-    "instructors": [
-      {
-        "instructorName": "Hicran Ertugral",
-        "course": "Onay Teknikleri",
-        "id": "00instructor1"
-      },
-      {
-        "instructorName": "Buse Ugras",
-        "course": "JavaScript",
-        "id": "00instructor2"
-      },
-      {
-        "instructorName": "Orun Durmaz",
-        "course": "React",
-        "id": "00instructor3"
-      },
-      {
-        "instructorName": "Orkun Durmaz",
-        "course": "Html Css",
-        "id": "00instructor4"
-      }
-    ]
-  }
+  "students": [
+    {
+      "studentName": "Barkin Onay Sayin",
+      "course": "Onay Teknikleri",
+      "instructor": "Hicran Ertugral",
+      "id": "001"
+    },
+    {
+      "studentName": "Ali Riza Taskiran",
+      "course": "JavaScript",
+      "instructor": "Buse Ugras",
+      "id": "002"
+    },
+    {
+      "studentName": "Berkay Turna",
+      "course": "React",
+      "instructor": "Orun Durmaz",
+      "id": "003"
+    },
+    {
+      "studentName": "Cenk Kaynak",
+      "course": "Html Css",
+      "instructor": "Orkun Durmaz",
+      "id": "004"
+    },
+    {
+      "studentName": "Maiores sit modi et",
+      "course": "Cumque est ducimus ",
+      "instructor": "Blanditiis minima et",
+      "id": "WFHqIjY"
+    },
+    {
+      "studentName": "ewq",
+      "course": "ewq",
+      "instructor": "dsa",
+      "id": "ZHudJXb"
+    }
+  ],
+  "users": [
+    {
+      "email": "onayking@barkin.com",
+      "password": "approvedCoder34",
+      "id": "00abc1"
+    },
+    {
+      "email": "yakrebingozleri@felix.com",
+      "password": "scorpiocodes35",
+      "id": "00abc2"
+    },
+    {
+      "email": "cenkflex@kaynak.com",
+      "password": "12345css4Ever",
+      "id": "00abc3"
+    }
+  ],
+  "instructors": [
+    {
+      "instructorName": "Hicran Ertugral",
+      "course": "Onay Teknikleri",
+      "id": "00instructor1"
+    },
+    {
+      "instructorName": "Buse Ugras",
+      "course": "JavaScript",
+      "id": "00instructor2"
+    },
+    {
+      "instructorName": "Orun Durmaz",
+      "course": "React",
+      "id": "00instructor3"
+    },
+    {
+      "instructorName": "Orkun Durmaz",
+      "course": "Html Css",
+      "id": "00instructor4"
+    }
+  ]
+}

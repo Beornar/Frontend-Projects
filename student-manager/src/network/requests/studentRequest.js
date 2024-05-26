@@ -1,14 +1,17 @@
 import { baseService } from "../../../../Calculator v2/src/network/services/baseService";
 
 export const getStudents = async () => {
-   try {
-    const response = await baseService.get("/students");
-    // control the response status
-    // control etc.
-    return response.data;
-   } catch (error) {
-    console.error("getStudents error: ", error);
-   }
+    try {
+        const response = await baseService.get("/students");
+        // control the response status
+        // control etc.
+        if (response.status !== 200) {
+            throw new Error("can not get the list");
+        }
+        return response.data;
+    } catch (error) {
+        console.error("getStudents error: ", error);
+    }
 }
 
 export const getStudentById = async (studentId) => {
@@ -27,6 +30,9 @@ export const postStudent = async (newStudent) => {
         const response = await baseService.post("/students", newStudent);
         // control the response status
         // control etc.
+        if (response.status !== 201) {
+            throw new Error("Can not create the student.")
+        }
         return response.data;
     } catch (error) {
         console.error("postStudent error: ", error);
