@@ -1,12 +1,11 @@
-import { baseService } from "../../../../Calculator v2/src/network/services/baseService";
+import { baseService } from "../services/baseService";
 
 export const getStudents = async () => {
     try {
         const response = await baseService.get("/students");
-        // control the response status
-        // control etc.
+
         if (response.status !== 200) {
-            throw new Error("can not get the list");
+            throw new Error("Can not get the list");
         }
         return response.data;
     } catch (error) {
@@ -17,8 +16,9 @@ export const getStudents = async () => {
 export const getStudentById = async (studentId) => {
     try {
         const response = await baseService.get(`/students/${studentId}`);
-        // control the response status
-        // control etc.
+        if (response.status !== 200) {
+            throw new Error("Can not get the student.")
+        }
         return response.data;
     } catch (error) {
         console.error("getStudentById error: ", error);
@@ -28,8 +28,7 @@ export const getStudentById = async (studentId) => {
 export const postStudent = async (newStudent) => {
     try {
         const response = await baseService.post("/students", newStudent);
-        // control the response status
-        // control etc.
+
         if (response.status !== 201) {
             throw new Error("Can not create the student.")
         }
@@ -42,8 +41,9 @@ export const postStudent = async (newStudent) => {
 export const deleteStudent = async (studentId) => {
     try {
         const response = await baseService.delete(`/students/${studentId}`);
-        // control the response status
-        // control etc.
+        if (response.status !== 200) {
+            throw new Error("Can not delete the student.")
+        }
         return response.data;
     } catch (error) {
         console.error("deleteStudent error: ", error);

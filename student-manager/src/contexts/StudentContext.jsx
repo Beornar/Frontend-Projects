@@ -8,10 +8,7 @@ export const StudentProvider = ({ children }) => {
 
     useEffect(
         () => {
-            console.log("StudentProvider mounted");
             getStudents();
-
-            // return () => console.log("cleanup");
         },
         []
     )
