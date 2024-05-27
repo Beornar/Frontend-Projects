@@ -6,13 +6,13 @@ function App() {
 
   const increaseCounter = () => {
 
-    setCounter(prevSetCounter => prevSetCounter + 1);
+    setCounter(prevCounter => prevCounter + 1);
 
   }
 
   const decreaseCounter = () => {
 
-    setCounter(prevSetCounter => prevSetCounter - 1);
+    setCounter(prevCounter => prevCounter - 1);
 
   }
 
