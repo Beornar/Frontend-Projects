@@ -1,6 +1,5 @@
-import React from 'react'
+import axios from "axios";
 import { useState } from 'react';
-import axios from "axios"
 
 const useCalc = () => {
     const [calcList, setCalcList] = useState([]);
