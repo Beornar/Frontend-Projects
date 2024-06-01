@@ -206,18 +206,17 @@ const users = [
   },
 ];
 
-// const splitFirstName = (firstName) => {
-//   return firstName.trim().toLowerCase().split(" ").map(name => name.charAt(0).toUpperCase() + name.slice(1)).join(" ");
-// }
-// const userList = [];
+const splitFirstName = (firstName) => {
+  return firstName.trim().toLowerCase().split(" ").map(name => name.charAt(0).toUpperCase() + name.slice(1)).join(" ");
+}
+const userList = [];
 
-// users.forEach(user => {
-//   const newFirstName = splitFirstName(user.firstName);
-//   const newLastName = user.lastName.trim().toUpperCase();
-//   console.log(newFirstName, newLastName);
-//   userList.push(newFirstName + " " + newLastName);
-// })
-// console.table(userList);
+users.forEach(user => {
+  const newFirstName = splitFirstName(user.firstName);
+  const newLastName = user.lastName.trim().toUpperCase();
+  userList.push(newFirstName + " " + newLastName);
+})
+console.table(userList);
 
 const months = {
   "Ocak": 1,
@@ -241,3 +240,8 @@ users.forEach(user => {
   birthdayList.push(user.birthDay.day + "-" + month + "-" + user.birthDay.year);
 })
 console.table(birthdayList);
+
+
+for (let i = 0; i < userList.length; i++) {
+  console.log(`${userList[i]} adlı kişi ${birthdayList[i]} tarihinde doğdu.`);
+}
