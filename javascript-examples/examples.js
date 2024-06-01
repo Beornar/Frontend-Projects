@@ -206,15 +206,38 @@ const users = [
   },
 ];
 
-const splitFirstName = (firstName) => {
-  return firstName.trim().toLowerCase().split(" ").map(letter => letter.charAt(0).toUpperCase() + letter.slice(1)).join(" ");
-}
-const userList = [];
+// const splitFirstName = (firstName) => {
+//   return firstName.trim().toLowerCase().split(" ").map(name => name.charAt(0).toUpperCase() + name.slice(1)).join(" ");
+// }
+// const userList = [];
+
+// users.forEach(user => {
+//   const newFirstName = splitFirstName(user.firstName);
+//   const newLastName = user.lastName.trim().toUpperCase();
+//   console.log(newFirstName, newLastName);
+//   userList.push(newFirstName + " " + newLastName);
+// })
+// console.table(userList);
+
+const months = {
+  "Ocak": 1,
+  "Şubat": 2,
+  "Mart": 3,
+  "Nisan": 4,
+  "Mayıs": 5,
+  "Haziran": 6,
+  "Temmuz": 7,
+  "Ağustos": 8,
+  "Eylül": 9,
+  "Ekim": 10,
+  "Kasım": 11,
+  "Aralık": 12
+};
+
+const birthdayList = [];
 
 users.forEach(user => {
-  const newFirstName = splitFirstName(user.firstName);
-  const newLastName = user.lastName.trim().toUpperCase();
-  console.log(newFirstName, newLastName);
-  userList.push(newFirstName + " " + newLastName);
+  const month = String(months[user.birthDay.month]).padStart(2, 0);
+  birthdayList.push(user.birthDay.day + "-" + month + "-" + user.birthDay.year);
 })
-console.log(userList);
+console.table(birthdayList);
