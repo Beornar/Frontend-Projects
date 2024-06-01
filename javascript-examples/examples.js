@@ -207,13 +207,12 @@ const users = [
 ];
 
 const splitFirstName = (firstName) => {
-  return firstName.toLowerCase().split(" ").map(letter => letter.charAt(0).toUpperCase() + letter.slice(1).toLowerCase()).join(" ");
-
+  return firstName.trim().toLowerCase().split(" ").map(letter => letter.charAt(0).toUpperCase() + letter.slice(1)).join(" ");
 }
 const userList = [];
 
 users.forEach(user => {
-  const newFirstName = splitFirstName(user.firstName.trim());
+  const newFirstName = splitFirstName(user.firstName);
   const newLastName = user.lastName.trim().toUpperCase();
   console.log(newFirstName, newLastName);
   userList.push(newFirstName + " " + newLastName);
