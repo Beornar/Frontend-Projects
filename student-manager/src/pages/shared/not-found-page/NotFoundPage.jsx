@@ -19,9 +19,17 @@ const NotFoundPage = () => {
         }, 1000);
 
         //clearInterval kullanmadığımda geri sayım hatalı olacağı için 1 saniyede bir saymak yerine saniye atlayabilir.
-        return () => clearInterval(countdown);
+        return () => {
+            clearInterval(countdown);
+        }
 
     }, [timer])
+
+    useEffect(() => {
+        console.log("Mounted.");
+
+        return () => console.log("Unmounted.");
+    },[])
 
     return (
         <div>
