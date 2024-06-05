@@ -16,11 +16,18 @@ function App() {
 
   }
 
+  const resetCounter = () => {
+
+    setCounter(0);
+
+  }
+
   return (
     <>
       <h3>Counter: {counter} </h3>
       <button onClick={increaseCounter} >Increase</button>
       <button onClick={decreaseCounter} >Decrease</button>
+      <button onClick={resetCounter} >Reset Counter</button>
 
     </>
   )
