@@ -6,19 +6,25 @@ import NewStudentPage from './pages/app/student/new-student-page/NewStudentPage'
 import StudentListPage from './pages/app/student/student-list-page/StudentListPage';
 import { LandingPage } from './pages/shared/landing-page/LandingPage';
 import NotFoundPage from './pages/shared/not-found-page/NotFoundPage';
-import { useReducer } from 'react';
+import { createRef, useReducer } from 'react';
 
 
-const initialState = { counter: 0 };
+const initialState = { counter: 0, error: null, lastUpdated: null };
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "INCREMENT_BY_ONE":
+      return { ...state, counter: state.counter + 1, lastUpdated: new Date().toLocaleDateString() };
+    case "DECREMENT_BY_ONE":
+      return { ...state, counter: state.counter - 1, lastUpdated: new Date().toLocaleDateString() };
     case "INCREMENT":
-      return { counter: state.counter + 1 };
+      return { ...state, counter: state.counter + action.payload.amount, lastUpdated: new Date().toLocaleDateString() }
     case "DECREMENT":
-      return { counter: state.counter - 1 };
+      return { ...state, counter: state.counter - action.payload.amount, lastUpdated: new Date().toLocaleDateString() }
+    case "SET_COUNTER":
+      return {...state, counter: action.payload.amount, lastUpdated: new Date().toLocaleDateString()}
     case "RESET":
-      return {counter: 0};
+      return { ...state, counter: 0 };
     default:
       return state.counter;
 
@@ -27,14 +33,30 @@ const reducer = (state, action) => {
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const incByRef = createRef();
+  const decByRef = createRef();
 
   return (
     <>
 
       <p>Counter: {state.counter} </p>
-      <button onClick={() => dispatch({type: "INCREMENT"})} >Increase</button>
-      <button onClick={() => dispatch({type: "DECREMENT"})}>Decrease</button>
-      <button onClick={() => dispatch({type: "RESET"})}>Reset</button>
+      <p>Last Updated: {state.lastUpdated} </p>
+      <br />
+      <button onClick={() => dispatch({ type: "INCREMENT_BY_ONE" })} >Increase</button>
+      <button onClick={() => dispatch({ type: "DECREMENT_BY_ONE" })}>Decrease</button>
+      <button onClick={() => dispatch({ type: "RESET" })}>Reset</button>
+      <br />
+      <br />
+      <button onClick={() => dispatch({ type: "INCREMENT", payload: amount })} >Increase By</button>
+      <input type="text" ref={incByRef} placeholder='Increase Amount' />
+      <br />
+      <br />
+      <button onClick={() => dispatch({type:"DECREMENT"})} >Decrease By</button>
+      <input type="text" ref={decByRef} placeholder='Decrease Amount' />
+      <br />
+      <br />
+      <button>Set Counter</button>
+      <input type="text" placeholder='Set Amount' />
 
     </>
 
