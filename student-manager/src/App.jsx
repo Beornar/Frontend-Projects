@@ -22,7 +22,7 @@ const reducer = (state, action) => {
     case "DECREMENT":
       return { ...state, counter: state.counter - action.payload.amount, lastUpdated: new Date().toLocaleDateString() }
     case "SET_COUNTER":
-      return {...state, counter: action.payload.amount, lastUpdated: new Date().toLocaleDateString()}
+      return { ...state, counter: action.payload.amount, lastUpdated: new Date().toLocaleDateString() }
     case "RESET":
       return { ...state, counter: 0 };
     default:
@@ -35,6 +35,7 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const incByRef = createRef();
   const decByRef = createRef();
+  const setByRef = createRef();
 
   return (
     <>
@@ -47,16 +48,16 @@ function App() {
       <button onClick={() => dispatch({ type: "RESET" })}>Reset</button>
       <br />
       <br />
-      <button onClick={() => dispatch({ type: "INCREMENT", payload: amount })} >Increase By</button>
+      <button onClick={() => dispatch({ type: "INCREMENT", payload: { amount: Number(incByRef.current.value) } })} >Increase By</button>
       <input type="text" ref={incByRef} placeholder='Increase Amount' />
       <br />
       <br />
-      <button onClick={() => dispatch({type:"DECREMENT"})} >Decrease By</button>
+      <button onClick={() => dispatch({ type: "DECREMENT", payload: { amount: Number(decByRef.current.value) } })} >Decrease By</button>
       <input type="text" ref={decByRef} placeholder='Decrease Amount' />
       <br />
       <br />
-      <button>Set Counter</button>
-      <input type="text" placeholder='Set Amount' />
+      <button onClick={() => dispatch({ type: "SET_COUNTER", payload: {amount:Number(setByRef.current.value) } })} >Set Counter</button>
+      <input type="text" ref={setByRef} placeholder='Set Amount' />
 
     </>
 
