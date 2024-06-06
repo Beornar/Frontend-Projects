@@ -13,11 +13,11 @@ const reducer = (state, action) => {
     case "DECREMENT_BY_ONE":
       return { ...state, counter: state.counter - 1, lastUpdated: new Date().toLocaleString() };
     case "INCREMENT":
-      return { ...state, counter: state.counter + action.payload.amount, lastUpdated: new Date().toLocaleString() }
+      return { ...state, counter: state.counter + action.payload.amount, lastUpdated: new Date().toLocaleString(), error: null }
     case "DECREMENT":
-      return { ...state, counter: state.counter - action.payload.amount, lastUpdated: new Date().toLocaleString() }
+      return { ...state, counter: state.counter - action.payload.amount, lastUpdated: new Date().toLocaleString(), error: null }
     case "SET_COUNTER":
-      return { ...state, counter: action.payload.amount, lastUpdated: new Date().toLocaleString() }
+      return { ...state, counter: action.payload.amount, lastUpdated: new Date().toLocaleString(), error: null }
     case "RESET":
       return { ...state, counter: 0, lastUpdated: new Date().toLocaleString() };
     default:
