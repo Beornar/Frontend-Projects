@@ -2,22 +2,24 @@ import { createRef, useReducer } from 'react';
 import './App.css';
 
 
-const initialState = { counter: 0, error: null, lastUpdated: null };
+const initialState = { counter: 0, lastUpdated: null, error: null };
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "ERROR":
+      return { ...state, error: action.payload.error };
     case "INCREMENT_BY_ONE":
-      return { ...state, counter: state.counter + 1, lastUpdated: new Date().toLocaleDateString() };
+      return { ...state, counter: state.counter + 1, lastUpdated: new Date().toLocaleString() };
     case "DECREMENT_BY_ONE":
-      return { ...state, counter: state.counter - 1, lastUpdated: new Date().toLocaleDateString() };
+      return { ...state, counter: state.counter - 1, lastUpdated: new Date().toLocaleString() };
     case "INCREMENT":
-      return { ...state, counter: state.counter + action.payload.amount, lastUpdated: new Date().toLocaleDateString() }
+      return { ...state, counter: state.counter + action.payload.amount, lastUpdated: new Date().toLocaleString() }
     case "DECREMENT":
-      return { ...state, counter: state.counter - action.payload.amount, lastUpdated: new Date().toLocaleDateString() }
+      return { ...state, counter: state.counter - action.payload.amount, lastUpdated: new Date().toLocaleString() }
     case "SET_COUNTER":
-      return { ...state, counter: action.payload.amount, lastUpdated: new Date().toLocaleDateString() }
+      return { ...state, counter: action.payload.amount, lastUpdated: new Date().toLocaleString() }
     case "RESET":
-      return { ...state, counter: 0 };
+      return { ...state, counter: 0, lastUpdated: new Date().toLocaleString() };
     default:
       return state.counter;
 
@@ -28,7 +30,8 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const incByRef = createRef();
   const decByRef = createRef();
-  const setByRef = createRef();
+  const setRef = createRef();
+
 
   return (
     <>
@@ -41,35 +44,28 @@ function App() {
       <button onClick={() => dispatch({ type: "RESET" })}>Reset</button>
       <br />
       <br />
-      <button onClick={() => dispatch({ type: "INCREMENT", payload: { amount: Number(incByRef.current.value) } })} >Increase By</button>
+      <button onClick={() => !isNaN(incByRef.current.value) ?
+        dispatch({ type: "INCREMENT", payload: { amount: Number(incByRef.current.value) } }) :
+        dispatch({ type: "ERROR", payload: { error: "Increment value is not a number" } })} >Increase By</button>
       <input type="text" ref={incByRef} placeholder='Increase Amount' />
       <br />
       <br />
-      <button onClick={() => dispatch({ type: "DECREMENT", payload: { amount: Number(decByRef.current.value) } })} >Decrease By</button>
+      <button onClick={() => !isNaN(decByRef.current.value) ?
+        dispatch({ type: "DECREMENT", payload: { amount: Number(decByRef.current.value) } }) :
+        dispatch({ type: "ERROR", payload: { error: "Decrement value is not a number" } })} >Decrease By</button>
       <input type="text" ref={decByRef} placeholder='Decrease Amount' />
       <br />
       <br />
-      <button onClick={() => dispatch({ type: "SET_COUNTER", payload: {amount:Number(setByRef.current.value) } })} >Set Counter</button>
-      <input type="text" ref={setByRef} placeholder='Set Amount' />
+      <button onClick={() => !isNaN(setRef.current.value) ?
+        dispatch({ type: "DECREMENT", payload: { amount: Number(setRef.current.value) } }) :
+        dispatch({ type: "ERROR", payload: { error: "Set counter value is not a number" } })} >Set Counter</button>
+      <input type="text" ref={setRef} placeholder='Set Amount' />
+
+      <p>{state.error} </p>
 
     </>
 
-    // <BrowserRouter>
 
-    //   <StudentProvider >
-    //     <Header/>
-    //     <br />
-    //     <main>
-    //       <Routes>
-    //         <Route path='/' element={<LandingPage />} />
-    //         <Route path='/students' element={ <StudentListPage/>} />
-    //         <Route path='/students/new' element={ <NewStudentPage/>} />
-    //         <Route path='*' element={ <NotFoundPage/>} />
-    //       </Routes>
-    //     </main>
-    //   </StudentProvider>
-
-    // </BrowserRouter>
   )
 }
 
