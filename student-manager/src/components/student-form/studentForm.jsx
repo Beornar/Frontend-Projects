@@ -8,6 +8,7 @@ const StudentForm = () => {
     const [studentInput, setStudentInput] = useState({ studentName: "", course: "", instructor: "" });
     const [studentInputErr, setStudentInputErr] = useState({ studentName: false, course: false, instructor: false });
 
+
     const addStudent = (event) => {
         event.preventDefault()
 
